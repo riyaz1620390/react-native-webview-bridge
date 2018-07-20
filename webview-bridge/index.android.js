@@ -33,7 +33,7 @@ var {
     WebViewBridgeManager
   }
 } = ReactNative;
-var { PropTypes } = React;
+var PropTypes = require('prop-types');
 
 var RCT_WEBVIEWBRIDGE_REF = 'webviewbridge';
 
@@ -44,11 +44,11 @@ var WebViewBridgeState = keyMirror({
 });
 
 var RCTWebViewBridge = requireNativeComponent('RCTWebViewBridge', WebViewBridge);
-
+var createReactClass = require('create-react-class');
 /**
  * Renders a native WebView.
  */
-var WebViewBridge = React.createClass({
+var WebViewBridge = createReactClass({
 
   propTypes: {
     ...RCTWebViewBridge.propTypes,
@@ -67,7 +67,7 @@ var WebViewBridge = React.createClass({
     };
   },
 
-  
+
   componentWillMount: function() {
     DeviceEventEmitter.addListener("webViewBridgeMessage", (body) => {
       const { onBridgeMessage } = this.props;

@@ -33,7 +33,7 @@ var {
     WebViewBridgeManager
   }
 } = ReactNative;
-var { PropTypes } = React;
+var PropTypes = require('prop-types');
 
 var BGWASH = 'rgba(255,255,255,0.8)';
 var RCT_WEBVIEWBRIDGE_REF = 'webviewbridge';
@@ -86,11 +86,11 @@ var defaultRenderError = (errorDomain, errorCode, errorDesc) => (
     </Text>
   </View>
 );
-
+var createReactClass = require('create-react-class');
 /**
  * Renders a native WebView.
  */
-var WebViewBridge = React.createClass({
+var WebViewBridge = createReactClass({
   statics: {
     JSNavigationScheme: JSNavigationScheme,
     NavigationType: NavigationType,
